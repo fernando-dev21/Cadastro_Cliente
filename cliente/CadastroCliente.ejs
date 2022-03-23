@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <h1>Cadastro de Cliente</h1>
+        <form action="/Cadastro/Usuário/salvar" method="POST">
+            <label>Nome:</label>
+            <input name="nome" type="text" /><br >
+            <label>Idade:</label>
+            <input name="idade" type="text" /><br />
+            <label>Endereço:</label>
+            <input type="endereço" value="cadastro"  />
+        </form>
+        <% if (mensagem)  {%>
+            <p>
+                <label style="color: red"><%= mensagem %></label>
+            </p>
+        <%}%>    
+    </body>
+    </html>
