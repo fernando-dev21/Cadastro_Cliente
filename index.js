@@ -1,6 +1,7 @@
 (async() => {
  
-const db = require(".\db");
+const db = require("./db");
+
 console.log('SELECT * FROM USUARIO');
 const usuarios = await db.selectUsuario();
 console.log(usuarios);
@@ -16,4 +17,21 @@ console.log(result3);
 console.log('UPDATE USUARIO');
 const result2 = await db.updateUsuario(3, {nome: "Zé José", senha: "ahsuahsuisdbvc7421"});
 console.log(result2);
+})();
+
+(async() => {
+    const database = require('./dborm');
+    const  {Cliente} = require('./cliente');
+
+    console.log(' Criar tabela =========================================================');
+    const resultado = await database.sequelize.sync();
+//    console.log(resultado);
+
+    console.log(' Criar um registro ===================================================');
+    const inserirCliente = await Cliente.create({
+        nome: 'João da Silva',
+        idade: 10,
+        endereço: 'Rua Paulista, n 10000'
+    })
+    console.log(inserirCliente);
 })();
